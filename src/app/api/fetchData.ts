@@ -15,7 +15,7 @@ export const fetchData = async (selectedCoin: string): Promise<CryptoData | null
   }
 
   const fetchWithRetry = async (retries: number = 3, delay: number = 1000): Promise<CryptoData | null> => {
-    const API_URL = process.env.GECKO_API_URL
+    const API_URL = process.env.NEXT_PUBLIC_API_URL
     try {
       const response = await axios.get<{ [key: string]: CryptoData }>(
         `${API_URL}?ids=${selectedCoin}&vs_currencies=usd&include_24hr_change=true`
